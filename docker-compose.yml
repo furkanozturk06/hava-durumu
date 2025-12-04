@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+    mongo:
+        image: mongo:7
+        container_name: mongo
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongo_data:/data/db # Kalıcı veri
+
+    backend:
+        build: ./Spring-boot-backend
+        container_name: springboot-app
+        ports:
+            - "8080:8080"
+        depends_on:
+            - mongo
+        environment:
+            - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/havaDurumu # <-- DB adı
+
+    frontend:
+        build: ./React-frontend
+        container_name: react-app
+        ports:
+            - "5174:5174"
+        depends_on:
+            - backend
+        environment:
+            - WDS_SOCKET_HOST=0.0.0.0
+        command: [ "npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5174" ]
+
+volumes:
+    mongo_data:

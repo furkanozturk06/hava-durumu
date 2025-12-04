@@ -1,0 +1,4 @@
+db.test.find()
+show collections
+use weather
+show dbs

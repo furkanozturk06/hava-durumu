@@ -1,0 +1,19 @@
+# Canlı MongoDB veri dizini - asla commit'lenmemeli
+mongo_data/
+
+# Ortam değişkenleri / secret dosyaları
+.env
+.env.local
+*.env
+
+# Bağımlılıklar / build çıktıları
+node_modules/
+target/
+build/
+dist/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store

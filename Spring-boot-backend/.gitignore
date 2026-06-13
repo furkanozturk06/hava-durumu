@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Ortam değişkenleri / secret dosyaları ###
+.env
+.env.local
+*.env

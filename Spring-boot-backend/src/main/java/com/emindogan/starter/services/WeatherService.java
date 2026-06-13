@@ -2,6 +2,7 @@ package com.emindogan.starter.services;
 import com.emindogan.starter.model.WeatherData;
 import com.emindogan.starter.repository.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.client.RestTemplate;
 import org.json.JSONObject;
 
@@ -12,7 +13,8 @@ import java.time.LocalDateTime;
 public class WeatherService {
     @Autowired
     private RestTemplate restTemplate;
-    private final String ***REMOVED***;
+    @Value("${openweather.api-key}")
+    private String Api_Key;
     private final String Base_URL = "https://api.openweathermap.org/data/2.5";
     @Autowired
     private WeatherRepository weatherRepository;

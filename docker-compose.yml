@@ -18,6 +18,8 @@ services:
             - mongo
         environment:
             - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/havaDurumu # <-- DB adı
+            - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY} # .env dosyasından okunur
+            - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS:-http://localhost:5174}
 
     frontend:
         build: ./React-frontend
